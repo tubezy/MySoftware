@@ -1,0 +1,58 @@
+# Permission Node List:
+# tkbanenchants.helpp - Access to the help menu (/banenchants)
+# tkbanenchants.onoff - Access to enable or disable banning enchants (/banenchants on/off)
+# tkbanenchants.bypassban - Bypass to enchant bans and access to disable bypass
+
+# Add the enchants that you want to be banned
+# Here is a list of all the enchants for it to register:
+
+# frost_walker, fortune, channeling, riptide -- protection, fire_protection, feather_falling, blast_protection, projectile_protection, respiration, aqua_infinity
+# thorns, depth_strider, curse_of_binding, sharpness, smite, bane_of_arthropods, knockback, fire_aspect, looting, sweeping_edge, efficiency, silk_touch, unbreaking
+# power, punch, flame, infinity, luck_of_the_sea, lure, loyalty, impaling, multishot, quick_charge, piercing, mending, curse_of_vanishing
+
+Banned_Enchants:
+  - "frost_walker"
+  - "fortune"
+  - "channeling"
+  - "riptide"
+  - "looting"
+
+
+# Color Codes: https://www.colorschemer.com/minecraft-color-codes/
+Chat:
+  Non_Op: # Player that does not have OP or does not have the permissions listed at the top of this config
+    No_Permission: "&6[TkBanEnchants] &cNo Permission."
+    Enable_Enchant_Block_Message: true # true / false - send a message to the player notifying them that they had an illegal enchantment and it was removed.
+    Reward_On_Enchant_Block: true
+    Reward_Amount: 3 #levels
+    Reward_Message: "&6[TkBanEnchants] &aRewarded {reward_amount} levels for your cooperation!"
+    Enchant_Block_Message: "&6[TkBanEnchants] &cYou have an illegal enchantment on an item! Removed the enchantment."
+    Enable_Enchant_Block_Sound_Effect: true # true / false - play a sound effect when the message is sent
+
+  Op: # Player that has OP or has the permissions listed at the top of this config
+    Enable_Enchant_Bypass_Block_Message: true # true / false - send a message notifying the operator that they bypass enchantment blocks
+    Enchant_Bypass_Block_Message: "&6[TkBanEnchants] &e[Notice] &aYou bypass enchantment blocks."
+    Enable_Enchant_Bypass_Block_Sound_Effect: false # true / false - play a sound effect when the message is sent
+    Enable_Creative_Mode_Error_Message: false
+    Creative_Mode_Error_Message: "&6[TkBanEnchants] &e[Notice] &dYou need to be in survival mode to remove the enchantment!"
+
+    Command:
+      # Feedback
+      Enable_Message: "&6[TkBanEnchants] &aEnabled banning enchants!" # /banenchants [enable/true/on]
+      Already_Enabled_Message: "&6[TkBanEnchants] &cBanning enchants is already enabled!" # /banenchants [enable/true/on]
+      Disable_Message: "&6[TkBanEnchants] &aDisabled banning enchants!" # /banenchants [disable/false/off]
+      Already_Disabled_Message: "&6[TkBanEnchants] &cBanning enchants is already disabled!" # /banenchants [disable/false/off]
+      Disable_Enchant_Bypass_Block_Message: "&6[TkBanEnchants] &cDisabled &aenchant bypass!" # /banenchants bypass
+      Enable_Enchant_Bypass_Block_Message: "&6[TkBanEnchants] &dEnabled &aenchant bypass!" # /banenchants bypass
+
+      # Help command [/banenchants]
+      Help_0: "&8-----------[ &6TkBanEnchants v2.3 Help Menu &8]-----------"
+      Help_1: "&dEnable banning enchants: &a'/banenchants [enable/true/on]'"
+      Help_2: "&dDisable banning enchants: &a'/banenchants [disable/false/off]'"
+      Help_3: "&dBypass enchantment blocks: &a'/banenchants bypass'"
+
+      # Errors
+      Incorrect_Argument: "&6[TkBanEnchants] &cIncorrect Argument! Type '/banenchants' for help."
+      Too_Many_Arguments: "&6[TkBanEnchants] &cToo many arguments! Type '/banenchants' for help."
+
+

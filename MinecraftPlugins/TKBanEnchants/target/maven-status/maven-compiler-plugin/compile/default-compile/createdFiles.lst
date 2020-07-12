@@ -1,0 +1,4 @@
+org\tomkayrp\tkbanenchants\commands\banenchantsCommand.class
+org\tomkayrp\tkbanenchants\TKBanEnchants.class
+org\tomkayrp\tkbanenchants\TubezMethods.class
+org\tomkayrp\tkbanenchants\events\OnInventoryClick.class

@@ -1,0 +1,11 @@
+name: TKBanEnchants
+version: ${project.version}
+main: org.tomkayrp.tkbanenchants.TKBanEnchants
+api-version: 1.13
+authors: [tubez]
+description: Ban enchants from the enchantment table.
+website: 92.118.16.112:25585
+commands:
+  banenchants:
+    description: Enable or disable banning enchants.
+    usage: /banenchants [enable/disable]
