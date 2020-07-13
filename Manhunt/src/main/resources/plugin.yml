@@ -1,0 +1,10 @@
+name: Manhunt
+version: ${project.version}
+main: org.tubez.manhunt.Manhunt
+api-version: 1.15
+authors: [tubez]
+description: A replica of Dream's manhunt!
+commands:
+  manhunt:
+    description: Help menu and the source of commands for manhunt.
+    usage: /<command>
