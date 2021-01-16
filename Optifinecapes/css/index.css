@@ -1,0 +1,208 @@
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 15% 40% 45%;
+    background-color: #295faf;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 2px 2px 25px #053850;
+}
+
+.logo {
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Product Sans';
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.navbar {
+    padding-left: 20px;
+}
+
+.nav {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding-left: 10%;
+    font-family: 'Product Sans';
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.parallax {
+    overflow: hidden;
+    position: relative;
+    background-image: url("https://media.discordapp.net/attachments/798965049900662877/799624836737269800/GOOD_QUALT.png");
+    min-height: 800px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallaxtext {
+    position: absolute;
+    color:#408cff;
+    font-family: "Product sans";
+    cursor: default;
+    background-color: #fff;
+    width: 40%;
+    min-height: 900px;
+    bottom: 90px;
+    border-radius: 100%;
+    padding-left: 300px;
+    right: 1130px;
+}
+
+.parallaxheader {
+    position: relative;
+    font-size: 55px;
+    letter-spacing: 1px;
+    margin-left: 38%;
+    top: 350px;
+}
+
+.parallaxfooter {
+    position: relative;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-left: 38%;
+    top: 320px
+}
+
+.hider {
+    top: 646px;
+    position: relative;
+    width: 100vw;
+    z-index: 99;
+    height: 100px;
+    background-color:#f7f7f7;
+}
+
+.capesheader {
+    position: relative;
+    color:#408cff;
+    font-family: "Product sans";
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 50px;
+    top: 70px;
+    margin-bottom: 150px;
+    cursor: default;
+}
+
+.capes {
+    position: relative;
+    display: grid;
+    grid-template-columns: 15% auto 15%;
+    padding-top: 7%;
+    bottom: 120px;
+}
+
+.capecards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 30px;
+    gap: 10px;
+}
+
+.card {
+    overflow: hidden;
+    background-color: rgb(110, 110, 110);
+    width: 300px;
+    box-shadow: 2px 2px 20px #b1b1b1;
+    max-height: 350px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cardimage {
+    z-index: 0;
+    filter: blur(5px);
+    transition: 0.3s;
+}
+
+.cardbox {
+    z-index: 2;
+    color: #fff;
+    font-family: 'Product Sans';
+    background-color: #408cff;
+    transform: translate(-25%, -90%) rotate(5deg);
+    width: 500px;
+    height: 135px;
+    transition: 0.3s;
+}
+
+.cardtext {
+    position: relative;
+    z-index: 3;
+    height: 25px;
+    bottom: 17.3pc;
+    color: white;
+    font-family: 'Product Sans';
+    font-weight: bold;
+    font-size: 25px;
+    padding-left: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background-color: #fff;
+}
+
+.card:hover .cardtext {
+    opacity: 0;
+    bottom: 14pc;
+}
+
+.card:hover .cardimage {
+    filter: blur(0px);
+    transform: scale(1.1);
+}
+
+.card:hover .cardbox {
+    transform: translate(-25%, -50%) rotate(5deg);
+}
+
+.footer {
+    background-color: #295faf;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Product Sans';
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: 7%;
+    letter-spacing: 2px;
+    font-weight: 400;
+    box-shadow: 2px 2px 25px #053850;
+    bottom: 0;
+    cursor: default;
+}
+

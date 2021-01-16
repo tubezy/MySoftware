@@ -1,0 +1,16 @@
+name: TKProximityChat
+version: ${project.version}
+main: org.tomkayrp.tkproximitychat.TKProximityChat
+api-version: 1.15
+authors: [TKDevTeam]
+description: Allows chatting only if another player is in a certain distance.
+website: 92.118.16.112:25585
+commands:
+  proxy:
+    description: Help menu for TKProximityChat
+    usage: /<command>
+    aliases: [proximity, prox]
+  pc:
+    description: Quick chat in proximity chat
+    usage: /<command>
+    aliases: [p]

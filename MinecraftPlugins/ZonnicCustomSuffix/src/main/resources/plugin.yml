@@ -1,0 +1,11 @@
+name: ZonnicCustomSuffix
+version: ${project.version}
+main: zonnic.land.zonniccustomsuffix.ZonnicCustomSuffix
+api-version: 1.16
+authors: [ tubez ]
+description: Allows players with a certain permission to choose a custom suffix!
+website: zonnic.land
+commands:
+  suffix:
+    description: Sets your suffix to whatever you want!
+    usage: /<command>

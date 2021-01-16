@@ -1,0 +1,11 @@
+name: ZonnicDiscord
+version: ${project.version}
+main: zonnic.land.zonnicdiscord.ZonnicDiscord
+api-version: 1.16
+authors: [ tubez ]
+description: Reveals the server's discord
+website: zonnic.land
+commands:
+  discord:
+    description: Gives the player the link to the discord
+    usage: /<command>

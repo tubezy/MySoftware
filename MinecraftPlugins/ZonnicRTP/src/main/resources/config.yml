@@ -1,0 +1,15 @@
+# ZonnicRTP By tubez
+
+cooldown_time: 120 #seconds
+grace_time: 5 #seconds (when the player moves the grace is cancelled)
+maximum-location-find-attempts: 50 # attempts
+
+range:
+  x-max: 20000
+  x-min: -20000
+  z-max: 20000
+  z-min: -20000
+  x-min-from-spawn: -5000
+  x-max-from-spawn: 5000
+  z-min-from-spawn: -5000
+  z-max-from-spawn: 5000

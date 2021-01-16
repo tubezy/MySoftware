@@ -1,0 +1,21 @@
+name: ZonnicClans
+version: ${project.version}
+main: zonnic.land.zonnicclans.ZonnicClans
+api-version: 1.16
+authors: [ tubez ]
+description: Clans plugin created for the Zonnic Land minecraft server.
+website: zonnic.land
+commands:
+  clan:
+    description: Main command for ZonnicClans
+    usage: /<command>
+    aliases: [clans, zonnicclans, cla, zc]
+
+  cc:
+    description: Quick clan chat to talk with your clan
+    usage: /<command>
+
+  suffix:
+    description: Set your custom suffix!
+    usage: /<command>
+    aliases: [suf]

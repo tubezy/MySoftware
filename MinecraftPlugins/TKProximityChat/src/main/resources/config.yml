@@ -1,0 +1,73 @@
+#
+# TKProximityChat - Allows chatting only if another player is in a certain distance.
+#
+# By: TK Dev Team
+
+# Permission Nodes:
+# tkproximitychat.reload - Allows player with permission to reload the plugin config.
+# tkproximitychat.admin - Allows all permissions below.
+# tkproximitychat.spy - Sends all proximity chat messages to player with this permission.
+# tkproximitychat.range - Allows player with permission to change the proximity chat range.
+# tkproximitychat.fullhelp - Access to the help menu which shows all the commands available to staff.
+# tkproximitychat.hidedistance - Hides players distances with this permission.
+# tkproximitychat.staffchatbypass - Turns off proximity chat once staff chat is used by a staff member with this permission
+
+
+range: 25 # The distance in between each proxy chat
+enable_distance: true # Shows the distance of the player in the proxy chat
+staff_chat_canceller: true # Turns off proximity chat once staff chat is used by a staff member
+staff_chat_starter: "@" # The beginning of the sentence begins with
+
+# https://www.colorschemer.com/minecraft-color-codes/
+
+chat:
+
+  enable:
+    proximity_chat_enable_message: "&3[TKProximityChat] &dProxy chat enabled, you can now only see messages from people nearby."
+    proximity_chat_already_enabled_message: "&3[TKProximityChat] &cProxy chat is already enabled!"
+    scoreboard_enable_message: "&3[TKProximityChat] &dScoreboard &aenabled&d."
+
+    proximity_chat_spy_mode_enable_message: "&3[TKProximityChat] &dProximity chat spy mode &aenabled&d!"
+
+  disable:
+    proximity_chat_disable_message: "&3[TKProximityChat] &dProxy chat disabled."
+    proximity_chat_disable_sc_message: "&3[TKProximityChat] &5v  Proxy chat disabled due to chatting with staff chat."
+    proximity_chat_already_disabled_message: "&e[TKProximityChat] &cProxy chat is already disabled!"
+    scoreboard_disable_message: "&3[TKProximityChat] &dScoreboard &cdisabled&d."
+
+    proximity_chat_spy_mode_disable_message: "&3[TKProximityChat] &dProximity chat spy mode &cdisabled&d!"
+
+  proximity_chat:
+    prefix: "&3[Proxy Chat] &f<{player}&f>&6"
+    distance_prefix: "&3[ {distance}m ] &f<{player}&f>&6"
+    no_one_around: "&7There is no one around you."
+
+    gm_spectator: "&3[TKProximityChat] &cYou cannot speak in proximity chat in spectator mode!"
+    spy_prefix: "&3PC Spy >> {player}:&6"
+
+  other:
+    reload_message: "&3[TKProximityChat] &aTKProximityChat has been reloaded!"
+    no_permission: "&3[TKProximityChat] &cYou do not have permission to execute this command."
+    error_message: "&3[TKProximityChat] &cThere was an issue with your command."
+    new_range_message: "&3[TKProximityChat] &dProximity chat max range is now &a{newrange}&d blocks! Previous limit: &a{oldrange}" # {newrange} - The new range set for proximity chat -- {oldrange} - The previous range that was set for proximity chat
+
+    help: # This is for normal players
+      - "&8(===========[ &3TKProximityChat Help Menu &8]===========)"
+      - "&b'/proxy on' &8- &3Enables proximity chat"
+      - "&b'/proxy off' &8- &3Disables proximity chat"
+      - "&b'/proxy (scoreboard/sb)' &8- &3Toggles the scoreboard"
+      - "&b'/pc [MESSAGE]' &7- &3Quick proximity chat"
+
+    help_staff: # This shows the rest of the commands available to staff
+      - "&b'/proxy spy' &8- &cEnables spy mode for proximity chat"
+      - "&b'/proxy range [NUMBER]' &8- &cChanges the range of proximity chat"
+      - "&b'/proxy reload' &8- &cReloads this plugin"
+
+proxy_on_players:
+  - ""
+
+spy_on_players:
+  - ""
+
+no_scoreboard_plauers:
+  - ""

@@ -1,0 +1,11 @@
+name: ZonnicRTP
+version: ${project.version}
+main: zonnic.land.zonnicrtp.ZonnicRTP
+api-version: 1.16
+authors: [ tubez ]
+description: Random Teleportation Plugin made for the Zonnic semi anarchy server
+website: zonnic.land
+commands:
+  rtp:
+    description: Randomly teleports you to a random location
+    aliases: [wild, tpr, randomtp]

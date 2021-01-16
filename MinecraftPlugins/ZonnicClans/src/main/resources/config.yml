@@ -1,0 +1,124 @@
+mysql_data:
+  host: localhost
+  database: zonnicclans
+  username: testserver
+  password: password123
+  port: 3306
+
+  #If you are given a JDBC connection string, you can use it here instead of entering each data piece manually
+  use-jdbc-connection-string: false
+  jdbc-connection-string: ""
+
+suffix:
+  character-min: 3
+  character-max: 10
+
+chat:
+  cooldown: 2
+
+clans:
+  head-drop-percentage: 20 # percent (max is 100)
+  homerange: 100 # clan home cannot be within this range
+  hometp-grace: 5 # seconds without movement till teleported to the clan base
+  max-characters: 8 # maximum amount of characters a clan name can have
+  min-characters: 3
+  max-players-in-clan: 10
+  update-cache: 60 # seconds
+  death-messages-by-player:
+    - "&c%player% &7was destroyed by &c%killer% &7using their &c%weapon%&7."
+    - "&c%player%'s &7blood was shed by &c%killer% &7using their &c%weapon%&7."
+    - "&c%player% &7was sliced in half by &c%killer% &7using their &c%weapon%&7."
+
+  death-messages-by-self:
+    - "&c%player% &7alt-f4'ed themselves."
+    - "&c%player% &7somehow died?"
+    - "&c%player% &7committed arson."
+    - "&c%player% &7got bruh'ed on."
+
+  banned-characters: # WARNING: Racial slurs at the bottom, already completed.
+    - " "            # WARNING: Racial slurs at the bottom, already completed.
+    - "!"            # WARNING: Racial slurs at the bottom, already completed.
+    - "@"            # WARNING: Racial slurs at the bottom, already completed.
+    - "#"            # WARNING: Racial slurs at the bottom, already completed.
+    - "$"            # WARNING: Racial slurs at the bottom, already completed.
+    - "%"            # WARNING: Racial slurs at the bottom, already completed.
+    - "^"            # WARNING: Racial slurs at the bottom, already completed.
+    - "&"            # WARNING: Racial slurs at the bottom, already completed.
+    - "*"            # WARNING: Racial slurs at the bottom, already completed.
+    - "("            # WARNING: Racial slurs at the bottom, already completed.
+    - ")"            # WARNING: Racial slurs at the bottom, already completed.
+    - "-"            # WARNING: Racial slurs at the bottom, already completed.
+    - "_"            # WARNING: Racial slurs at the bottom, already completed.
+    - "="            # WARNING: Racial slurs at the bottom, already completed.
+    - "+"            # WARNING: Racial slurs at the bottom, already completed.
+    - "{"            # WARNING: Racial slurs at the bottom, already completed.
+    - "}"            # WARNING: Racial slurs at the bottom, already completed.
+    - "["            # WARNING: Racial slurs at the bottom, already completed.
+    - "]"
+    - "\\"
+    - "|"
+    - ";"
+    - ":"
+    - "'"
+    - '"'
+    - ","
+    - "<"
+    - "."
+    - ">"
+    - "/"
+    - "?"
+
+  banned-words:
+    - "nigga"
+    - "n1gga"
+    - "n1ga"
+    - "niga"
+    - "nigg4"
+    - "n1gg4"
+    - "nig4"
+    - "aggin"
+    - "n1g4"
+    - "migga"
+    - "miga"
+    - "m1ga"
+    - "m1g4"
+    - "nigger"
+    - "n1gg3r"
+    - "n1g3r"
+    - "n1ger"
+    - "niger"
+    - "migger"
+    - "m1gg3r"
+    - "m1g3r"
+    - "mig3r"
+    - "niiga"
+    - "niiggaa"
+    - "nniiggaa"
+    - "nn11gg44"
+    - "n11ggaa"
+    - "n11ga"
+    - "n11gga"
+    - "n11gaa"
+    - "n1gaa"
+    - "n!gger"
+    - "n!ga"
+    - "n!gga"
+    - "nn!!gg44"
+    - "nn!!ggaa"
+    - "n!gg3r"
+    - "n!g3r"
+    - "n!gg4"
+    - "n!g4"
+    - "nn!ga"
+    - "nn1ga"
+    - "nniga"
+    - "m!gga"
+    - "m!ger"
+    - "m!gger"
+    - "n;gger"
+    - "n;ga"
+    - "n;gga"
+    - "n;ger"
+    - "n;;ger"
+    - "n;;ga"
+    - "n;gaa"

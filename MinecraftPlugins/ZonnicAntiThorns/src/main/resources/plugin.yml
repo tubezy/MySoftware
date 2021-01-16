@@ -1,0 +1,7 @@
+name: ZonnicAntiThorns
+version: ${project.version}
+main: zonnic.land.zonnicantithorns.ZonnicAntiThorns
+api-version: 1.16
+authors: [ tubez ]
+description: Eliminates thorns from the game, like makes it not exist at all.
+website: zonnic.land
