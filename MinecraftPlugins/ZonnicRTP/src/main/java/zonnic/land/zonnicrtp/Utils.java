@@ -15,61 +15,66 @@ public class Utils {
 
     ZonnicRTP plugin = ZonnicRTP.getPlugin();
     public static HashMap<UUID, Integer> teleportiongPlayers = new HashMap<>();
+    public static HashMap<Player, Boolean> locationFound = new HashMap<>();
+    public static HashMap<Player, Location> generatedLocationFinal = new HashMap<>();
 
     public void teleportToRandomLocation(Player player) {
         player.sendMessage(ChatColor.GOLD + "[ZonnicRTP] " + ChatColor.GREEN + "Looking for location...");
-        Location randomLocation = generateLocation(player);
-        if (randomLocation.getBlockY() != -101) {
-            player.sendMessage(ChatColor.GOLD + "[ZonnicRTP] " + ChatColor.GREEN + "Location found!");
-            int graceTime = plugin.getConfig().getInt("grace_time");
-            player.sendMessage(ChatColor.GOLD + "[ZonnicRTP] " + ChatColor.GREEN + "Teleporting in " + graceTime + " seconds, please do not move.");
-            int id = new BukkitRunnable() {
-                @Override
-                public void run() {
-                    player.teleport(randomLocation);
-                    RTPCommand.rtpcooldown.put(player.getUniqueId(), System.currentTimeMillis());
-                    teleportiongPlayers.remove(player.getUniqueId());
-                }
-            }.runTaskLater(plugin, (graceTime * 20)).getTaskId();
-            teleportiongPlayers.put(player.getUniqueId(), id);
-        } else {
-            player.sendMessage(ChatColor.GOLD + "[ZonnicRTP] " + ChatColor.RED + "Failed to find location, please try again.");
-        }
+        generateLocation(player);
+
     }
 
-    private Location generateLocation(Player player) {
+    private void generateLocation(Player player) {
         int minX = plugin.getConfig().getInt("range.x-min"); int minZ = plugin.getConfig().getInt("range.z-min");
         int maxX = plugin.getConfig().getInt("range.x-max"); int maxZ = plugin.getConfig().getInt("range.z-max");
         int minXfromSpawn = plugin.getConfig().getInt("range.x-min-from-spawn"); int minZfromSpawn = plugin.getConfig().getInt("range.z-min-from-spawn");
         int maxXfromSpawn = plugin.getConfig().getInt("range.x-max-from-spawn"); int maxZfromSpawn = plugin.getConfig().getInt("range.z-max-from-spawn");
 
-        ThreadLocalRandom random = ThreadLocalRandom.current();
-        int randX =  random.nextInt(minX, maxX);
-        int randZ = random.nextInt(minZ, maxZ);
-        int highestY;
-        Location generatedLocation = new Location(player.getWorld(), randX, 100, randZ);
-        highestY = generatedLocation.getWorld().getHighestBlockYAt(generatedLocation) + 1;
-        generatedLocation.setY(highestY);
-
-        boolean locationFound = false;
-        for (int i = 0; i < plugin.getConfig().getInt("maximum-location-find-attempts"); i++) {
-            if (isLocationSafe(generatedLocation)) {
-                if ((generatedLocation.getBlockX() >= maxXfromSpawn || generatedLocation.getBlockX() <= minXfromSpawn)) {
-                    if ((generatedLocation.getBlockZ() >= maxZfromSpawn || generatedLocation.getBlockZ() <= minZfromSpawn)) {
-                        locationFound =  true;
-                        break;
-                    } else {
-                        generatedLocation = generateLocation(player);
+        locationFound.put(player, false);
+        final Thread thread = new Thread(
+                () -> {
+                    Location generatedLocation = new Location(player.getWorld(), 0, 100, 0);
+                    ThreadLocalRandom random = ThreadLocalRandom.current();
+                    while(!locationFound.get(player)){
+                        int randX =  random.nextInt(minX, maxX);
+                        int randZ = random.nextInt(minZ, maxZ);
+                        int highestY;
+                        generatedLocation.setX(randX); generatedLocation.setZ(randZ);
+                        highestY = generatedLocation.getWorld().getHighestBlockYAt(generatedLocation) + 1;
+                        generatedLocation.setY(highestY);
+                        if (isLocationSafe(generatedLocation)) {
+                            if ((generatedLocation.getBlockX() >= maxXfromSpawn || generatedLocation.getBlockX() <= minXfromSpawn)) {
+                                if ((generatedLocation.getBlockZ() >= maxZfromSpawn || generatedLocation.getBlockZ() <= minZfromSpawn)) {
+                                    locationFound.replace(player, true);
+                                    break;
+                                }
+                            }
+                        }
                     }
-                } else {
-                    generatedLocation = generateLocation(player);
+
+                    generatedLocationFinal.put(player, generatedLocation);
+                    if (generatedLocation.getBlockY() != -101) {
+                        player.sendMessage(ChatColor.GOLD + "[ZonnicRTP] " + ChatColor.GREEN + "Location found!");
+                        int graceTime = plugin.getConfig().getInt("grace_time");
+                        player.sendMessage(ChatColor.GOLD + "[ZonnicRTP] " + ChatColor.GREEN + "Teleporting in " + graceTime + " seconds, please do not move.");
+                        int id = new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                player.teleport(generatedLocation);
+                                player.sendMessage(ChatColor.GOLD + "[ZonnicRTP] " + ChatColor.GREEN + "You were teleported!");
+                                if (!player.isOp()) RTPCommand.rtpcooldown.put(player.getUniqueId(), System.currentTimeMillis());
+                                teleportiongPlayers.remove(player.getUniqueId());
+                                generatedLocationFinal.remove(player);
+                                locationFound.remove(player);
+                            }
+                        }.runTaskLater(plugin, (graceTime * 20)).getTaskId();
+                        teleportiongPlayers.put(player.getUniqueId(), id);
+                    } else {
+                        player.sendMessage(ChatColor.GOLD + "[ZonnicRTP] " + ChatColor.RED + "Failed to find location, please try again.");
+                    }
                 }
-            }
-        }
-
-        if (!locationFound) generatedLocation.setY(-101);
-
-        return generatedLocation;
+        );
+        thread.start();
     }
 
     private boolean isLocationSafe (Location location) {

@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class ZonnicRTP extends JavaPlugin {
 
     static ZonnicRTP plugin;
-    String pluginVersion = "1.1";
+    String pluginVersion = "1.2";
     String name = "ZonnicRTP";
     String pluginName = ChatColor.translateAlternateColorCodes('&', name);
 
